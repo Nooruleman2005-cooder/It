@@ -2,9 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LostFound = (props) => {
 
+  const navigate = useNavigate();
   const [form, setForm] = useState({ title: "", description: "", image: null });
   const token = localStorage.getItem("token");
 
@@ -32,7 +34,9 @@ const LostFound = (props) => {
       );
 
       console.log(res.data.message);
-      toast.success("Report Submit Successfully!")
+      toast.success("Report Submit Successfully!");
+       navigate("/dashboard");
+
       setForm({ title: "", description: "", image: null });
       if (props.onSubmitted) {
         props.onSubmitted();
@@ -44,6 +48,7 @@ const LostFound = (props) => {
   };
 
   return (
+    <div className="about-bg text-white">
     <div className="glass-section" style={{ maxWidth: "650px", margin: "30px auto" }}>
       <h2 className="mb-3">Report Lost Item</h2>
 
@@ -71,6 +76,7 @@ const LostFound = (props) => {
           Submit Report
         </button>
       </form>
+    </div>
     </div>
   );
 };

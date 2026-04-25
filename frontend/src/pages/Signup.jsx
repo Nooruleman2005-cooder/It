@@ -28,7 +28,7 @@ const Signup = () => {
       console.log(response.data);
       console.log(response?.data?.message);
       toast.success("User Created Successfully!");
-      navigate('/');
+      navigate('/login');
     }
     catch (error) {
       console.log(error.response.data);
@@ -78,7 +78,7 @@ const Signup = () => {
         </form>
 
         <p className="switch">
-          Already have an account? <Link to="/">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

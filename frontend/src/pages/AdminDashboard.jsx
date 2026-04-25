@@ -201,7 +201,7 @@ const AdminDashboard = () => {
         <div className="d-flex align-items-center gap-3 position-relative">
 
           {/*  Bell */}
-          <div style={{ position: "relative" }}>
+          <div className={`notif-wrapper ${unreadCount > 0 ? "active" : ""}`}>
             <FaBell
               size={22}
               style={{ cursor: "pointer" }}
@@ -209,7 +209,7 @@ const AdminDashboard = () => {
             />
 
             {unreadCount > 0 && (
-              <span className="badge bg-danger position-absolute top-0 start-100 translate-middle">
+              <span className="notif-badge">
                 {unreadCount}
               </span>
             )}

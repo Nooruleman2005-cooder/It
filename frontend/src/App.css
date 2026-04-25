@@ -472,12 +472,11 @@ body {
     width: 100%;
     min-height: auto;
     display: flex;
-    flex-direction: column;   /* IMPORTANT */
+    flex-direction: column;   
     align-items: center;
     padding: 10px;
   }
 
-  /* USER PANEL HEADING CENTER */
   .sidebar h4 {
     width: 100%;
     text-align: center;
@@ -490,7 +489,7 @@ body {
     width: 100%;
     justify-content: space-between;
     padding: 0;
-    flex-wrap: wrap;   /* so items wrap properly */
+    flex-wrap: wrap;  
   }
 
   .sidebar .nav-item {
@@ -506,4 +505,299 @@ body {
     margin-bottom: 15px;
   }
 
+}
+
+
+/* NAVBAR */
+.custom-navbar {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 12px 0;
+}
+
+/* BRAND */
+.brand-text {
+  color: #60a5fa !important;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* LOGO */
+.nav-logo {
+  width: 45px;
+}
+
+/* NAV LINKS */
+.nav-custom {
+  color: #cbd5e1 !important;
+  transition: 0.3s;
+}
+
+.nav-custom:hover {
+  color: #3b82f6 !important;
+  transform: translateY(-1px);
+}
+
+.navbar-toggler {
+  border: none;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white !important;
+  transition: 0.3s;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); 
+}
+
+@media (max-width: 991px) {
+
+  .navbar-collapse {
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .navbar-nav {
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link,
+  .signup-btn,
+  .logout-btn {
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .nav-custom:hover {
+    transform: none; 
+  }
+}
+
+/* BUTTONS */
+.logout-btn {
+  background: linear-gradient(90deg, #ef4444, #b91c1c) !important;
+  border: none !important;
+  padding: 10px 16px;
+  color: white !important;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  transform: scale(1.05);
+}
+
+.signup-btn {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: white !important;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  transform: scale(1.05);
+}
+
+.custom-footer {
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  color: white;
+}
+
+.footer-brand {
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+.footer-title {
+  color: #93c5fd;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: #cbd5e1;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.custom-footer svg {
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom-footer svg:hover {
+  color: #3b82f6;
+  transform: scale(1.2);
+}
+
+.about-bg {
+  min-height: 100vh;
+ background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  padding: 40px 0;
+}
+
+.profile-text {
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+  color: #cbd5e1;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+  gap: 10px;
+}
+
+/* LABEL (left side) */
+.profile-row label {
+  width: 80px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* VALUE TEXT */
+.profile-row span {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #cbd5e1;
+}
+
+/* INPUT */
+.profile-row input {
+  flex: 1;
+}
+
+/* ICON */
+.icon {
+  cursor: pointer;
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.icon.edit {
+  color: #3b82f6;
+}
+
+.icon.save {
+  color: #22c55e;
+}
+
+.nav-logo {
+  width: 100px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.home-card {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 16px;
+  color: white;
+  padding: 25px;
+  text-align: center;
+  transition: 0.4s ease;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.home-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #3b82f6;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* Card title */
+.home-card h4 {
+  color: #60a5fa;
+  margin-bottom: 10px;
+}
+
+/* Card text */
+.home-card p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+/* Button styling */
+.home-card .btn {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 8px 20px;
+  transition: 0.3s;
+}
+
+.home-card .btn:hover {
+  transform: scale(1.05);
+}
+
+.slider-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.carousel-caption {
+  z-index: 2;
+}
+
+.notif-wrapper {
+  position: relative;
+  padding: 8px;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/*  Jab unread ho */
+.notif-wrapper.active {
+  background-color: red;
+}
+
+/* Bell icon */
+.notif-icon {
+  color: white;
+  transition: 0.3s;
+}
+
+/*  Active ho to icon white */
+.notif-wrapper.active .notif-icon {
+  color: white;
+}
+
+/* Badge */
+.notif-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: yellow;
+  color: black;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
 }

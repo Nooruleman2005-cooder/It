@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Complaint = ({ onSubmitted }) => {
 
+  const navigate = useNavigate();
   const [form, setForm] = useState({ title: "", description: "" });
   const token = localStorage.getItem("token");
 
@@ -23,7 +25,7 @@ const Complaint = ({ onSubmitted }) => {
       );
 
       toast.success( "Complaint Submit Successfully!");
-
+      navigate("/dashboard")
 
       console.log(res.data.message);
       setForm({ title: "", description: "" });
@@ -36,6 +38,7 @@ const Complaint = ({ onSubmitted }) => {
   };
 
   return (
+     <div className="about-bg text-white">
     <div className="glass-section" style={{ maxWidth: "600px", margin: "30px auto" }}>
       <h2 className="mb-3">Submit Complaint</h2>
 
@@ -61,6 +64,7 @@ const Complaint = ({ onSubmitted }) => {
           Submit Complaint
         </button>
       </form>
+    </div>
     </div>
   );
 };

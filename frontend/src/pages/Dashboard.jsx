@@ -77,6 +77,7 @@ const Dashboard = () => {
     }
   };
 
+
   // ================= FETCH VOLUNTEER =================
   const fetchVolunteerRequest = async () => {
     try {
@@ -103,6 +104,21 @@ const Dashboard = () => {
     }
   };
 
+  const handleReportSubmit = () => {
+    fetchReports();
+    setActivePage("myreports");
+  };
+
+  const handleComplaintSubmit = () => {
+    fetchComplaints();
+    setActivePage("mycomplaints");
+  };
+
+  const handleVolunteerSubmit = () => {
+    fetchVolunteerRequest();
+    setActivePage("dashboard");
+  };
+
   // ================= FIRST LOAD =================
   useEffect(() => {
     if (!token) return;
@@ -125,7 +141,7 @@ const Dashboard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logged out successfully!");
-    navigate("/");
+    navigate("/login");
   };
 
   const totalReports = reports.length;
@@ -156,6 +172,21 @@ const Dashboard = () => {
     }, 10000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+
+    const syncUser = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("user"));
+      setUserName(updatedUser?.name || "User");
+    };
+
+    window.addEventListener("userUpdated", syncUser);
+
+    syncUser();
+
+    return () => window.removeEventListener("userUpdated", syncUser);
+
   }, []);
 
   return (
@@ -207,10 +238,10 @@ const Dashboard = () => {
           <h2>Welcome, {userName}</h2>
 
           {/*  NOTIFICATION */}
-          <div style={{ position: "relative" }}>
+          <div className={`notif-wrapper ${unreadCount > 0 ? "active" : ""}`}>
             <FaBell
               size={22}
-              style={{ cursor: "pointer" }}
+              className="notif-icon"
               onClick={() => setOpenNotif(!openNotif)}
             />
 
@@ -285,17 +316,20 @@ const Dashboard = () => {
         )}
 
         {/* ROUTES */}
-        {activePage === "lostfound" && (
-          <LostFound onSubmitted={fetchReports} />
-        )}
         {activePage === "myreports" && <MyReports />}
-        {activePage === "complaints" && <Complaint onSubmitted={fetchComplaints} />}
-         {activePage === "mycomplaints" && <MyComplaints complaints={complaints} />}
+        {activePage === "mycomplaints" && <MyComplaints complaints={complaints} />}
+        {activePage === "lostfound" && (
+          <LostFound onSubmitted={handleReportSubmit} />
+        )}
+
+        {activePage === "complaints" && (
+          <Complaint onSubmitted={handleComplaintSubmit} />
+        )}
 
         {activePage === "volunteer" && (
           <div className="glass-section">
             {!myVolunteerRequest ? (
-              <Volunteer onSubmitted={fetchVolunteerRequest} />
+              <Volunteer onSubmitted={handleVolunteerSubmit} />
             ) : (
               <div className="glass-card">
                 <h5>Your Request</h5>

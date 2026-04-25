@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Volunteer = () => {
 
+  const navigate = useNavigate();
   const [event, setEvent] = useState("");
   const [availability, setAvailability] = useState("");
   const [myRequest, setMyRequest] = useState(null);
@@ -33,6 +35,7 @@ const Volunteer = () => {
 
       setMyRequest(res.data.volunteer);
       toast.success("Volunteer Request Submitted!");
+       navigate("/dashboard")
 
       setEvent("");
       setAvailability("");
@@ -65,6 +68,7 @@ const Volunteer = () => {
   
 
   return (
+    <div className="about-bg text-white">
     <div className="auth-card" style={{ width: "500px", margin: "30px auto" }}>
       <h2 className="title">Volunteer Form</h2>
 
@@ -108,6 +112,7 @@ const Volunteer = () => {
           </p>
         </div>
       )}
+    </div>
     </div>
   );
 };

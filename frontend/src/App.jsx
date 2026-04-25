@@ -11,9 +11,15 @@ import Complaint from "./pages/Complaint";
 import Volunteer from "./pages/Volunteer";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./pages/AdminRoute";
+import Layout from "./components/Layout";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import AboutUs from "./pages/AboutUs";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -22,14 +28,18 @@ function App() {
      <ToastContainer position="top-center" autoClose={2000} />
       <BrowserRouter>
         <Routes>
+          <Route element={<Layout />}>
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs/>} />
           <Route path="/lostfound" element={<PrivateRoute><LostFound /></PrivateRoute>} />
+          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/complaint" element={<PrivateRoute><Complaint /></PrivateRoute>} />
           <Route path="/volunteer" element={<PrivateRoute><Volunteer /></PrivateRoute>} />
+          </Route>
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}/>
-
         </Routes>
       </BrowserRouter>
     </>
