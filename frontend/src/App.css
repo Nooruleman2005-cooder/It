@@ -606,6 +606,7 @@ body {
   color: white !important;
   text-decoration: none;
   transition: 0.3s;
+  text-align: center;
 }
 
 .signup-btn:hover {
