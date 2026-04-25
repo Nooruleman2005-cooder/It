@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="about-bg">
-      <div className="container text-white py-5">
+      <div className="container text-white py-3">
 
         {/* SLIDER */}
-        <div id="homeCarousel" className="carousel slide mb-5" data-bs-ride="carousel">
-
+        <div id="homeCarousel" className="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
           <div className="carousel-inner rounded overflow-hidden">
 
             {/* SLIDE 1 */}
